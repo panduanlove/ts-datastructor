@@ -59,6 +59,9 @@ describe('linklist test', () => {
     linkList.deleteNode((item:number) => item === 3);
     expect(linkList.Size).toBe(1);
     expect(linkList.getTailNode()).toEqual(linkList.getHeadNode());
+    linkList.deleteNode(9);
+    expect(linkList.getHeadNode()).toEqual(null);
+    expect(linkList.getTailNode()).toEqual(null);
   });
 
   test('findNode', () => {
@@ -84,5 +87,34 @@ describe('linklist test', () => {
     tailNode.setValue(5);
     expect(linkList.getTailNode().Value).toBe(5);
     expect(linkList.getTailNode().toString()).toBe('5');
+  });
+
+  test('shift', () => {
+    linkList.clear();
+    let result = linkList.shift();
+    expect(result).toEqual(null);
+    linkList.append(1);
+    result = linkList.shift();
+    expect(result.Value).toBe(1);
+    linkList.append(3);
+    linkList.append(5);
+    expect(linkList.getHeadNode().Value).toBe(3);
+    result = linkList.shift();
+    expect(result.Value).toBe(3);
+    expect(linkList.getHeadNode()).toEqual(linkList.getTailNode());
+  });
+
+  test('pop', () => {
+    linkList.clear();
+    let result = linkList.pop();
+    expect(result).toEqual(null);
+    linkList.append(1);
+    result = linkList.pop();
+    expect(result.Value).toBe(1);
+    linkList.append(3);
+    linkList.append(5);
+    result = linkList.pop();
+    expect(result.Value).toBe(5);
+    expect(linkList.getHeadNode()).toEqual(linkList.getTailNode());
   });
 });
