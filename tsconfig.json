@@ -1,17 +1,23 @@
 {
   "compilerOptions": {
-    "target": "esnext",
+    "target": "es5",
     "useDefineForClassFields": true,
-    "module": "esnext",
+    "module": "es2015",
     "moduleResolution": "node",
     "strict": true,
     "jsx": "preserve",
     "sourceMap": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "lib": ["esnext", "dom"],
-    "types": ["vite/client", "jest"],
-    "skipLibCheck": true
+    "lib": ["es2015", "dom"],
+    "types": ["jest"],
+    "skipLibCheck": true,
+    "strictNullChecks": false,
+    "declaration": false,
+    "noImplicitAny": true,
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"]
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
+  "exclude": [
+    "node_modules"
+  ]
 }
